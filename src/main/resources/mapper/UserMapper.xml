@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bian.mapper.UserMapper">
+
+	<!-- 登陆 -->
+	<select id="userLogin" resultType="User" parameterType="User">
+		select id,username,password,head from user where email=#{email}
+	</select>
+	
+	<!-- 邮箱验证 -->
+	<select id="userTest" resultType="String">
+		select email from user where email=#{email}
+	</select>
+	
+	<!-- 注册 -->
+	<insert id="userRegister" parameterType="User">
+		insert into user
+		(username,email,password,likeT,head)
+		values(#{username},#{email},#{password},#{likeT},#{head})
+	</insert>
+</mapper>

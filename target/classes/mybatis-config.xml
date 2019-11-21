@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
+	<typeAliases>
+		<!-- 你这里是扫描了实体类包里面的所以实体，所以不要用别名的方式去配置studentsMapper.xml -->
+		<package name="cn.bian.bean"/>
+		<!-- 这里的是用了别名的方式去配置，所以如果你要用这个，你应该像我这YANG,看好了
+		<typeAlias alias="Students" type="cn.school.bean.Students"/> -->
+	</typeAliases>
+	
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!--分页参数合理化  -->
+			<property name="reasonable" value="true"/>
+		</plugin>
+	</plugins>
+
+</configuration>
+

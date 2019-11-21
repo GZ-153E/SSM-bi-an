@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bian.mapper.User_collectionMapper">
+	<!-- 添加收藏 -->
+	<insert id="saveCollection">
+		insert into user_collection(userID,listID,url,title,pictureID,time)
+		values(${userID},#{listID},#{url},#{title},${pictureID},#{time})
+	</insert>
+	
+	<!-- 取消收藏 -->
+	<delete id="deleteCollection">
+		delete from user_collection
+    	where userID=#{userID} and pictureID=#{pictureID}
+	</delete>
+	
+	<!-- 检测是否已收藏 -->
+	<select id="allCollection" resultType="User_collection">
+		select pictureID from user_collection 
+		where userID=${userID}
+	</select>
+	
+	<select id="collectionBylist" resultType="User_collection">
+		select * from user_collection where userID=${userID}
+		<if test="listID!=null and listID!=''">
+			and listID=#{listID}
+		</if>
+		order by time desc
+	</select>
+</mapper>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bian.mapper.PictureMapper">
+
+	<select id="allPicture" resultType="Picture">
+		select * from picture order by time desc
+	</select>
+	
+	<!-- 分类查询 -->
+	<select id="allPictureByClassify" resultType="Picture" >
+		select * from picture 
+		<if test="picturetitle!=null and picturetitle!=''">
+			where picturetitle like '%${picturetitle}%'
+		</if>
+		<if test="classifyID!=null and classifyID!=''">
+			where classifyID=${classifyID} 
+		</if>
+		<if test="size!=null and size!=''">
+			where size='${size}'
+		</if>
+		ORDER BY time desc
+	</select>
+	
+	<!-- 按id查询 -->
+	<resultMap type="Picture" id="PictureResultMap">
+		<id column="id"  property="id" />
+		<result column="picturetitle" property="picturetitle"/>
+		<result column="pictureurl"  property="pictureurl" />
+		<result column="size" property="size"/>
+		<result column="volume" property="volume"/>
+		<result column="time" property="time"/>
+		<result column="downloadvolume" property="downloadvolume"/>
+		<result column="clickvolume" property="clickvolume"/>
+		
+		<association property="classify" javaType="Classify">
+			<result column="classifyname" property="classifyname"/>
+		</association>
+	</resultMap>
+	
+	<sql id="PictureBy">
+		picture.id,picturetitle,pictureurl,size,volume,time,classify.classifyname,downloadvolume,clickvolume
+	</sql>
+	
+	
+	<select id="getPictureByid" resultMap="PictureResultMap">
+			SELECT <include refid="PictureBy"></include>
+			FROM picture INNER JOIN classify ON picture.`classifyID`=classify.`id`
+			WHERE picture.`id`=#{id} 
+	</select>
+	
+	<select id="getSrc" resultType="Picture">
+		select * from picture where id=#{id}
+	</select>
+	
+	
+	<!-- 图片上传 -->
+	<insert id="pictureUpload">
+		insert into picture(id,picturetitle,pictureurl,classifyID,size,volume,time) 
+		values(#{id},#{picturetitle},#{pictureurl},#{classifyID},#{size},#{volume},#{time})
+	</insert>
+	
+	<!-- 删除图片 -->
+	<delete id="pictureDelete">
+		delete from picture where id=${id}
+	</delete>
+	
+	<!-- 查询所有分类 -->
+	<select id="getClassify" resultType="Classify">
+		select * from classify
+	</select>
+	
+	
+	<!-- 修改 -->
+	<update id="pictureUpdate" parameterType="Picture">
+		update picture
+		<set>
+			<if test="picturetitle != null">
+				picturetitle = #{picturetitle},
+			</if>
+			<if test="classifyID != null">
+				classifyID = ${classifyID},
+			</if>
+			<if test="size != null">
+				size = #{size},
+			</if>
+			<if test="volume != null">
+				volume = #{volume},
+			</if>
+		</set>
+		where id=${id}
+	</update>
+	
+	<!-- 下载加1 -->
+	<update id="downloadAddOne">
+		update picture set downloadvolume = downloadvolume+1 where id=${id}
+	</update>
+	
+	<!-- 点击加1 -->
+	<update id="clickAddOne">
+		update picture set clickvolume = clickvolume+1 where id=${id}
+	</update>
+</mapper>
+

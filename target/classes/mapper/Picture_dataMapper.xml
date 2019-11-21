@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bian.mapper.Picture_dataMapper">
+	<resultMap type="Picture_data" id="Picture_dataResultMap">
+		<result column="time" property="time"/>
+		<association property="picture" javaType="Picture">
+			<id column="id" property="id"/>
+			<result column="pictureurl" property="pictureurl"/>
+			<result column="picturetitle" property="picturetitle"/>
+		</association>
+	</resultMap>
+	<!-- 按id查询所有浏览记录 -->
+	<select id="allData" resultType="Picture_data">
+		select * from picture_data where userID=${userID}
+	</select>
+	
+	<!-- 创建浏览历史 -->
+	<insert id="saveData">
+		insert into picture_data(userID,pictureID,url,title,time)
+		values(#{userID},${pictureID},#{url},#{title},#{time})
+	</insert>
+	
+	<!-- 查询记录是否存在 -->
+	<select id="trueData" resultType="integer">
+		select count(*) from picture_data where userID=#{userID} and pictureID=${pictureID}
+	</select>
+	
+	<!-- 记录已存在 修改浏览历史 -->
+	<update id="updateData" parameterType="picture_data">
+		update picture_data set time=#{time} where userID=${userID} and pictureID=${pictureID}
+		<!-- update picture_data 
+		<set>
+			<if test="time!=null and time!=''">
+				time = #{time}
+			</if>
+		</set>
+		where userID=${userID} and pictureID=${pictureID}-->
+	</update>
+	<!-- 删除浏览历史 -->
+	<delete id="deleteData">
+		delete from picture_data where userID=${userID}
+		<if test="pictureID!=null and pictureID!=''">
+			and pictureID=${pictureID}
+		</if>
+	</delete>
+</mapper>

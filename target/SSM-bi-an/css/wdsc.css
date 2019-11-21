@@ -1,0 +1,52 @@
+.wdsc{
+	width: 1305px;height: 1200px;
+	margin: auto;
+	
+}
+.wdz{
+	float: left;width: 300px;
+}
+.wdz li{
+	height: 40px;width: 300px;line-height: 40px;font-size: 20px;
+	margin-left: -40px;
+	border-bottom: #0099E5 solid 1px;
+	padding-left: 50px;
+}
+.wdy{
+	float: left;
+	border-left: #DEDEDE 3px solid;
+	position: relative;
+	-moz-user-select:none;
+	width: 1000px;height:1200px;
+	overflow: hidden;
+}
+.tp{
+	margin-left: -20px;
+}
+.tp li{
+	float: left;
+    width: 305px;
+    height: 200px;
+    margin: 10px 10px 10px 7px;
+    position: relative;
+    overflow: hidden;
+}
+.tp li img{
+	width: 100%;height: 100%;
+}
+.tp div{
+	position: absolute;
+	top:160px;left: 10px;
+	display: none;
+}
+.tp li:hover div{
+	display: block;
+}
+
+
+
+.wdyx{
+	overflow:auto; zoom:1;  
+}
+.silderBar{width:10px;height:99%;position:absolute;top:0.5%;right:0.5%;background:#bbb;border-radius:5px;overflow:hidden;}
+.silderBar span{height:20px;width:100%;top:0;left:0;position:absolute;display:block;background:#f90}

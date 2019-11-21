@@ -1,0 +1,33 @@
+#login{
+	height: 500px;
+}
+.leftlogin{
+	height: 300px;
+	border-right: solid 1px salmon;
+	padding-top: 40px;line-height: 30px;
+}
+.rightlogin{
+	height: 300px;width: 1200px;
+	border-left: solid 1px sandybrown;
+}
+
+.reghead{
+	border-bottom: 1px solid #ddd;
+	width: 1200px;margin: auto;
+	margin-bottom: 70px;padding-bottom: 30px;
+	margin-top: 50px;
+}
+.acount-btn{
+	width: 120px;height: 30px;background-color: red;
+	line-height: 30px;text-align: center;
+}
+.loginMod{
+	padding-top: 50px;
+}
+.loginMod .form-group{
+	line-height: 40px;
+	height: 50px;font-size: 18px;
+}
+.loginMod .form-group input{
+	height: 50px;
+}

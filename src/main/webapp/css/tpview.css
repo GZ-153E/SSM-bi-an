@@ -1,0 +1,150 @@
+
+.photo{
+	width: 1200px;
+	margin: auto;
+	position: relative;
+}
+.view{
+	width: 900px;
+	margin-right: 30px;
+	margin-bottom: 20px;
+}
+.side {
+	width: 270px;
+	position: absolute;top:0px;right: 0px;
+}
+.photo-hd{
+	border-bottom: 1px solid #ededed;
+	background-color: 	#EAEAEA;
+	text-align: center;
+	height: 60px;line-height: 60px;
+	font-size: 23px;
+}
+.photo-pic img{
+	width: 100%;hight:100%;
+}
+.photo-pic{
+	position: relative;
+}
+.photo-pic:hover div{
+	display: block;
+}
+.photo-txt{
+	width: 900px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.photo-tags a{
+	display: inline-block;
+    height: 27px;
+    background: #F0F8FF;
+    border-radius: 4px;
+    margin-right: 6px;
+    padding: 4px 10px 0;
+    color: #333;
+    margin-bottom: 10px;
+}
+.downpic{
+	height: 60px;
+    background: #63b504;
+    border-radius: 4px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.downpic a{
+	display: block;
+    line-height: 60px;
+    text-align: center;
+    text-indent: 30px;
+    font-size: 20px;
+    color: #fff;
+}
+.infor{
+	border: #ededed 1px solid;
+    background-color: #fafafa!important;
+    padding: 15px 0 10px;
+    margin: 15px 0;
+    padding: 10px 15px;
+}
+.infor p{
+	line-height: 28px;
+    color: #333;
+}
+.infor p span{
+	margin-left: 20px;
+}
+.bdshare-button-style0-32{
+	position: absolute;
+	top: 0;right: 0;
+	display: none;
+}
+
+.bdshare-button-style0-32 .bds_more {
+    color: #333;
+}
+.bdshare-button-style0-32 a {
+    float: left;
+    width: 32px;
+    line-height: 32px;
+    height: 32px;
+    background-image: url(../img/icons_0_32.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 6px 6px 6px 0;
+    text-indent: -100em;
+    overflow: hidden;
+    color: #3a8ceb;
+}
+.bdshare-button-style0-32 .bds_qzone {
+    background-position: 0 -52px;
+}
+.bdshare-button-style0-32 .bds_tsina {
+    background-position: 0 -104px;
+}
+.bdshare-button-style0-32 .bds_weixin {
+    background-position: 0 -1612px;
+}
+.bdshare-button-style0-32 .bds_huaban {
+    background-position: 0 -1872px;
+}
+.photopx{
+	width: 1200px;
+	margin: auto;
+	margin-bottom:30px;
+}
+.photopx-form{
+	margin-top: 30px;
+}
+.photopx-form .srk{
+	width: 1100px;height: 50px;
+	font-size: 20px;line-height: 30px;
+}
+.comment{
+	margin-bottom: 30px;
+	margin-left: -35px;
+}
+.comment li{
+	height: 103px;
+	border: #009900 1px solid;
+	width: 1100px;
+	margin-bottom:10px;
+	position: relative;
+}
+.comment img{
+	 width:100px;
+	 height:100px;
+}
+.comment .ptp {
+	width:900px;
+	margin-top: -90px;
+	margin-left: 110px;
+}
+.comment .pp{
+	font-size:16px;
+	position: absolute;
+	bottom: 5px;right: 10px;
+}
+.comment .time{
+	position: absolute;
+	top:10px;left: 150px;
+}
